@@ -1,8 +1,13 @@
 name: Dynamic Databricks Notebook Deploy
+
+
+
 on:
   push:
     branches:
       - main
+
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -18,7 +23,7 @@ jobs:
         ORIGIN_HOST=${{ secrets.DATABRICKS_ORIGIN_HOST }}
         ORIGIN_TOKEN=${{ secrets.DATABRICKS_ORIGIN_TOKEN }}
         NOTEBOOK_BASE="/Workspace/Users/luiss22_99@hotmail.com/SMARTDATA_DATABRICKS"
-        NOTEBOOKS=("clase_cicd")  # Agrega más según necesitesas
+        NOTEBOOKS=("clase_cicd" "resultado")  # Agrega más según necesitesas
         mkdir -p notebooks_to_deploy
         for nb in "${NOTEBOOKS[@]}"; do
           echo "Exportando $nb en modo raw..."
@@ -32,7 +37,7 @@ jobs:
       run: |
         DEST_HOST=${{ secrets.DATABRICKS_DEST_HOST }}
         DEST_TOKEN=${{ secrets.DATABRICKS_DEST_TOKEN }}
-        DEST_BASE="/py/scripts/main"
+        DEST_BASE="/py/scripts/main2"
         for file in notebooks_to_deploy/*.py; do
           name=$(basename "$file" .py)
           dest_path="$DEST_BASE/$name"
