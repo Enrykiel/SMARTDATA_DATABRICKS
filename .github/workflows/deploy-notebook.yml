@@ -238,7 +238,7 @@ jobs:
           "schedule": {
             "quartz_cron_expression": "0 0 8 * * ?",
             "timezone_id": "America/Lima",
-            "pause_status": "PAUSED"
+            "pause_status": "ACTIVE"
           },
           "email_notifications": {
             "on_failure": [],
