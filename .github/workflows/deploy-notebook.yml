@@ -125,6 +125,7 @@ jobs:
         
         echo "Creando workflow: WF_ADB con cluster existente ID: $CLUSTER_ID"
         
+        
         # Crear el JSON del workflow usando cluster existente
         cat > workflow_config.json << EOF
         {
